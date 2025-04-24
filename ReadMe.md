@@ -11,20 +11,27 @@ Connect with friends in real time, enjoy a modern terminal experience, and reliv
 - 📝 **Chat History:** New users see previous chat history on join
 - 🔄 **Dynamic Usernames:** Change names with simple commands
 - 📊 **Activity Logging:** All events saved to `server.log`
+- 🖥️ **TUI Client:** Modern terminal UI client included (optional).
 
 
 ## 🗂️ Project Structure
 
 ```
 .
-├── main.go         # Server initialization
-│   └── main()      # Entry point
-├── server.go       # Core functionality
-│   ├── AcceptClient()     # New connection handling
-│   ├── BroadcastMessage() # Message distribution
-│   └── MonitorDisconnections() # Client cleanup
-├── test.go         # Unit tests
-└── build.sh        # Build script
+├── main.go           # Entry point (server & TUI client launcher)
+├── tui.go            # Terminal UI client
+├── server/           # Server package
+│   ├── client.go
+│   ├── connections.go
+│   ├── handlers.go
+│   ├── message.go
+│   ├── server.go
+│   └── utils.go
+├── test.go           # Unit tests
+├── build.sh          # Build script
+├── go.mod
+├── go.sum
+└── ReadMe.md
 ```
 
 ---
@@ -48,11 +55,16 @@ Connect with friends in real time, enjoy a modern terminal experience, and reliv
    nc localhost 8989
    ```
 
+4. **Connect with the TUI Client**
+ ```bash
+   ./TCPChat -tui
+```
 ---
 
 ## 💡 Chat Commands & Features
 
 ### Change Username
+
 ```bash
 /name NewUsername
 ```
@@ -60,32 +72,16 @@ Connect with friends in real time, enjoy a modern terminal experience, and reliv
 ### Message Format
 ```go
 // Regular chat message
-[2025-04-24 20:13:19][Username]: Message
+[YYYY-MM-DD HH:MM:SS][Username]: Message
 
-// System message (join/leave)
+System messages (join/leave/rename) are shown in color.
+
 Username has joined our chat...
 Username has left our chat...
 ```
 
 ---
 
-## 🧪 Testing
-
-Run the test suite:
-```bash
-go test ./...
-```
-
-Example test case:
-```go
-func TestClientConnection(t *testing.T) {
-    // Test client connection handling
-    server := NewServer()
-    // ... test implementation
-}
-```
-
----
 
 ## 👩‍💻 About the Team
 
