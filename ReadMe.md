@@ -27,7 +27,6 @@ Connect with friends in real time, enjoy a modern terminal experience, and reliv
 │   ├── message.go
 │   ├── server.go
 │   └── utils.go
-├── test.go           # Unit tests
 ├── build.sh          # Build script
 ├── go.mod
 ├── go.sum
@@ -83,13 +82,7 @@ Username has left our chat...
 ---
 
 
-## 👩‍💻 About the Team
-
-We are passionate developers at Zone01, creating engaging chat experiences:
-
-- **Vicky Apostolou, Yana Kopylova, Kostas Apostolou**
-
-👩‍💻 Team
+## 👩‍💻 Team
 Created with passion by Zone01 students:
 
 **Vicky Apostolou, Iana kopylova, Kostas Apostolou**
